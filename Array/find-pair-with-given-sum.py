@@ -56,3 +56,28 @@ findPairSort(nums, target)
 nums = [5, 2, 6, 8, 1, 9]
 target = 12
 findPairSort(nums, target)
+
+
+
+# his part is copied from https://www.techiedelight.com/find-pair-with-given-sum-array/
+def findPairHash(nums, target):
+    # create an empty dictionary
+    d = {}
+
+    # do for each element
+    for i, e in enumerate(nums):
+
+        # check if pair (e, target - e) exists
+
+        # if the difference is seen before, print the pair
+        if target - e in d:
+            print('Pair found', (nums[d.get(target - e)], nums[i]))
+            return
+
+        # store index of the current element in the dictionary
+        d[e] = i
+    print(d)
+    # No pair with the given sum exists in the list
+    print('Pair not found')
+nums = [8,7,5,3,2, 100]
+findPairHash(nums,target)
