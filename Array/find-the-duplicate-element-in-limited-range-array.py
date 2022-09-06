@@ -17,3 +17,15 @@ def findDup(ls):
     if compLs.__len__()!=0:
         print('the duplicate is: ',ls[compLs[0]])
 findDup([1,100,100,3,4,5,6])
+
+def findDup3(ls=[]):
+    d={}
+    for x in ls:
+        d[x] = ls.count(x)
+    for k,v in d.items():
+        if v>1:
+            print('the duplicate is: ',k)
+    return ''
+findDup3([1,2,3,100,400,200,100])
+
+
