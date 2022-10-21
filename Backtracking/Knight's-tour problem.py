@@ -2,10 +2,10 @@
 # Moving according to the rules of chess knight must visit each square exactly once.
 # Print the order of each cell in which they are visited.
 # from geeksforgeeks
-n = int(input())
+n = 6
 
 
-def issafe(x, y, board):
+def isSafe(x, y, board):
     if 0 <= x < n and 0 <= y < n and board[x][y] == -1:
         return True
     return False
@@ -29,23 +29,21 @@ def solveKT(n):
     else:
         print('solution does\'nt exist')
 
-def solveKTUtil(n, board, currX ,currY, moveX, moveY,pos):
+def solveKTUtil(n, board, curr_x ,curr_y, move_x, move_y,pos):
     if pos==n*n:
         return True
 
     for i in range(8):
-        newX = currX + moveX[i]
-        newY = currY + moveY[i]
-        if issafe(newX, newY, board):
-            currX=newX
-            currY = newY
-            board[newX][newY] = pos
-            pos+=1
-            if solveKTUtil(n, board, currX,currY,moveX,moveY,pos):
+        new_x = curr_x + move_x[i]
+        new_y = curr_y + move_y[i]
+        if (isSafe(new_x, new_y, board)):
+            board[new_x][new_y] = pos
+            if (solveKTUtil(n, board, new_x, new_y, move_x, move_y, pos + 1)):
                 return True
-            board[newX][newY]=-1
+
+            # Backtracking
+            board[new_x][new_y] = -1
     return False
 
 
-
-
+solveKT(n)
