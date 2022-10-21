@@ -2,8 +2,9 @@
 # Moving according to the rules of chess knight must visit each square exactly once.
 # Print the order of each cell in which they are visited.
 # from geeksforgeeks
-n = 6
-
+n = 5
+l=[1,2,3,100]
+print(l.__sizeof__())
 
 def isSafe(x, y, board):
     if 0 <= x < n and 0 <= y < n and board[x][y] == -1:
