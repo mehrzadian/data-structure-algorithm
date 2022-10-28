@@ -17,3 +17,7 @@ class LinkedList:
             print(temp.data, end=" ")
             temp = temp.next
         print()
+    def pushAtFirst(self,data):
+        node=Node(data)
+        node.next = self.head
+        self.head =node
