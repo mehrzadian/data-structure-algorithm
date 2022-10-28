@@ -89,4 +89,10 @@ class LinkedList:
             return current.data
 
         return self.getNthRecussively(current.next, index - 1)
+    def printNthFromLast(self,main,ref, n):
+        self.getNthRecussively(ref,n)
+        while not ref :
+            ref=ref.next
+            main=main.next
+        return main.data
 
