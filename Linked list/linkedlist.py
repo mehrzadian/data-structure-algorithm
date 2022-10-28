@@ -21,3 +21,15 @@ class LinkedList:
         node=Node(data)
         node.next = self.head
         self.head =node
+    def pushAtPos(self,prevNode,newData):
+        if prevNode is None:
+            print("previous node doesn't exist!")
+        newNode =Node(newData)
+        newNode.next=prevNode.next
+        prevNode.next=newNode
+    def pushAtEnd(self,data):
+        node=Node(data)
+        temp=self.head
+        while temp.next:
+            temp = temp.next
+        temp.next=node
