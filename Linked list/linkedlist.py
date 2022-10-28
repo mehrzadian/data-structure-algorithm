@@ -73,4 +73,20 @@ class LinkedList:
         l+=1
         return self.lenRecursivly(head.next,l)
 
+    def getNth(self, index):
+        temp = self.head
+        pos = 0
+        while pos < index:
+            if temp is None:
+                print('not found')
+                return
+            temp = temp.next
+            pos += 1
+        return temp.data
+
+    def getNthRecussively(self, current, index):
+        if index == 0:
+            return current.data
+
+        return self.getNthRecussively(current.next, index - 1)
 
