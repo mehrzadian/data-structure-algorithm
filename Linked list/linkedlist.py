@@ -96,3 +96,15 @@ class LinkedList:
             main=main.next
         return main.data
 
+if __name__ == '__main__':
+    # Start with the empty list
+    llist = LinkedList()
+    llist2=LinkedList()
+    llist.head = Node(1)
+    second = Node(2)
+    third = Node(3)
+    llist.head.next = second  # Link first node with second
+    # n=Node(input())
+    # llist.head.next=llist.head
+    # llist.head.data=n
+    second.next = third
