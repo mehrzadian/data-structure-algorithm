@@ -46,3 +46,17 @@ class LinkedList:
             prev=temp
             temp = temp.next
         prev.next=None
+    def search(self,data):
+
+        temp = self.head
+        while temp:
+            if temp.data==data:
+                return True
+            temp=temp.next
+        return False
+    def searchRecursively(self,head,data):
+        if not head:
+            return False
+        if head.data ==data:
+            return True
+        return self.searchRecursively(head.next,data)
