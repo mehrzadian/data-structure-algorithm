@@ -60,3 +60,17 @@ class LinkedList:
         if head.data ==data:
             return True
         return self.searchRecursively(head.next,data)
+    def len(self):
+        l=0
+        temp=self.head
+        while temp:
+            l+=1
+            temp=temp.next
+        return l
+    def lenRecursivly(self,head,l=0):
+        if not head:
+            return l
+        l+=1
+        return self.lenRecursivly(head.next,l)
+
+
