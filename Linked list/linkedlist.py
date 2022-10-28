@@ -108,3 +108,12 @@ if __name__ == '__main__':
     # llist.head.next=llist.head
     # llist.head.data=n
     second.next = third
+    llist.printll()
+    llist.pushAtEnd(6)
+    llist.pushAtFirst(45)
+    llist.printll()
+    print(llist.searchRecursively(llist.head, 6))
+    print(llist.lenRecursivly(llist.head, 0))
+    print(llist.getNthRecussively(llist.head, 2))
+    print(llist.printNthFromLast(llist.head, llist.head, 3))
+    llist.printll()
