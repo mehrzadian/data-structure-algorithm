@@ -33,3 +33,16 @@ class LinkedList:
         while temp.next:
             temp = temp.next
         temp.next=node
+    def deleteAtFirst(self):
+        temp = self.head
+        self.head=self.head.next
+        del temp
+    def deleteAtEnd(self):
+        temp =self.head
+        prev=None
+        if temp==None:
+            print('empty')
+        while temp.next:
+            prev=temp
+            temp = temp.next
+        prev.next=None
