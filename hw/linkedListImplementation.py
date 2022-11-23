@@ -4,6 +4,7 @@ class Node:
         self.value=value
         self.next=None
 
+
 class linkedList:
 
     def __init__(self,value=None):
@@ -27,7 +28,7 @@ class linkedList:
             temp = temp.next
         print()
 if __name__ == '__main__':
-    ll = linkedList(2)
+    ll = linkedList()
 
     ll.print()
     ll.push(10)
