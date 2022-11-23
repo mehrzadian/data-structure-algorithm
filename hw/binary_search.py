@@ -66,7 +66,7 @@ def select(ls, q=3, k=0):
         print("k: ", k)
         select(s1, q, k)
     elif k == n2 + n1:
-        if len(s2) > 0:
+        if len(s2) >= k:
             return s2[k]
     else:
         print("k: ", k)
