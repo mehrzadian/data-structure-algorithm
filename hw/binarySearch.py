@@ -7,6 +7,7 @@ data = int(input())
 
 def binarySearch(data, ls=[]):
     if len(ls) == 1:
+
         return ls[0]
     else:
         ls.sort()
