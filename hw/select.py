@@ -33,10 +33,9 @@ def bubbleSort(arr):
 
 def select(ls, q=3, k=0):
     print(ls)
-    if ls.__len__() == 0:
-        return
-    ls2 = list()
-    newls = list()
+    if ls.__len__() == 1:
+        return ls[0]
+
     chunks = [ls[x:x + q] for x in range(0, len(ls), q)]
     for i in range(chunks.__len__()):
         bubbleSort(chunks[i])
