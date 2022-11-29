@@ -1,4 +1,4 @@
-print(7 // 3)
+
 kind = int(input("if postfix:-1, infix:0, prefix:1\n"))
 str = input()
 
