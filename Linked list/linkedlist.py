@@ -73,6 +73,12 @@ class LinkedList:
         l+=1
         return self.lenRecursivly(head.next,l)
 
+    def getLast(self):
+        temp = self.head
+        while temp.next:
+            temp = temp.next
+        return temp.data
+
     def getNth(self, index):
         temp = self.head
         pos = 0
@@ -97,6 +103,14 @@ class LinkedList:
             main=main.next
         return main.data
 
+    def numberOfOccurance(self, key):
+        count = 0
+        temp = self.head
+        while temp:
+            if temp.data is key:
+                count += 1
+            temp = temp.next
+        print("{} is repeated {} times".format(key, count))
 if __name__ == '__main__':
     # Start with the empty list
     llist = LinkedList()
@@ -113,8 +127,9 @@ if __name__ == '__main__':
     llist.pushAtEnd(6)
     llist.pushAtFirst(45)
     llist.printll()
-    print(llist.searchRecursively(llist.head, 6))
-    print(llist.lenRecursivly(llist.head, 0))
-    print(llist.getNthRecussively(llist.head, 2))
-    print(llist.printNthFromLast(llist.head, llist.head, 3))
+    print(llist.getLast())
+    # print(llist.searchRecursively(llist.head, 6))
+    # print(llist.lenRecursivly(llist.head, 0))
+    # print(llist.getNthRecussively(llist.head, 2))
+    # print(llist.printNthFromLast(llist.head, llist.head, 3))
     llist.printll()
