@@ -13,7 +13,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    def printll(self):
+    def print(self):
         temp = self.head
         while (temp):
             print(temp.data, end=" ")
@@ -135,29 +135,30 @@ class LinkedList:
         self.head = prev
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
     # Start with the empty list
-    llist = LinkedList()
-    llist2 = LinkedList()
-    llist.head = Node(1)
-    second = Node(2)
-    third = Node(3)
-    llist.head.next = second  # Link first node with second
+    # llist = LinkedList()
+    # llist2 = LinkedList()
+    # llist.head = Node(1)
+    # second = Node(2)
+    # third = Node(3)
+    # llist.head.next = second  # Link first node with second
     # n=Node(input())
     # llist.head.next=llist.head
     # llist.head.data=n
-    second.next = third
-    llist.printll()
-    llist.pushAtEnd(6)
-    llist.pushAtFirst(45)
+    # second.next = third
+    # llist.print()
+    # llist.pushAtEnd(6)
+    # llist.pushAtFirst(45)
     # llist.printll()
     # print(llist.getLast())
     # print(llist.searchRecursively(llist.head, 6))
     # print(llist.lenRecursivly(llist.head, 0))
     # print(llist.getNthRecussively(llist.head, 2))
     # print(llist.printNthFromLast(llist.head, llist.head, 3))
-    print(llist.__reversed__())
-    llist.printll()
+    # print(llist.__reversed__())
+    # llist.print()
+    # print(llist.__sizeof__())
     # print(llist.getLast())
     # llist.deleteAtEnd()
     # print(llist.getLast())
