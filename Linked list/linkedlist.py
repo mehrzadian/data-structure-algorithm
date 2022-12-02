@@ -124,20 +124,15 @@ class LinkedList:
         print("{} is repeated {} times".format(key, count))
 
     def __reversed__(self):
-
-        ls = []
-        temp = self.head
-
-        while temp:
-            ls.append(temp.data)
-            temp = temp.next
-        ls = ls[::-1]
-
-        reversedLinkedList = LinkedList()
-        reversedLinkedList.head = Node(ls[0])
-        for i in range(1, len(ls)):
-            reversedLinkedList.pushAtEnd(ls[i])
-        return reversedLinkedList
+        prev=None
+        curr = self.head
+        next = None
+        while curr is not None:
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        self.head = prev
 
 
 if __name__ == '__main__':
@@ -161,7 +156,7 @@ if __name__ == '__main__':
     # print(llist.lenRecursivly(llist.head, 0))
     # print(llist.getNthRecussively(llist.head, 2))
     # print(llist.printNthFromLast(llist.head, llist.head, 3))
-    print(reversed(llist))
+    print(llist.__reversed__())
     llist.printll()
     # print(llist.getLast())
     # llist.deleteAtEnd()
