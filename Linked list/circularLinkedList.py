@@ -93,3 +93,15 @@ class circularLinkedList:
         temp = self.head
         prev = None
         while temp.next != self.head:
+            prev = temp
+            temp = temp.next
+            prev.next = self.head
+    
+    def countNodes(self):
+        temp = self.head
+        count = 0
+        while temp.next != self.head:
+            count += 1
+            temp = temp.next
+        return count
+    
