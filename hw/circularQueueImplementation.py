@@ -38,7 +38,22 @@ class CircularQueue:
             for i in range(0, self.tail):
                 print(self.queue[i], end="  ")
             print()
-
+    def isEmpty(self):
+        return self.head == -1
+    def isFull(self):
+        return (self.tail + 1) % self.size == self.head
+    def peek(self):
+        return self.queue[self.head]
+    def size(self):
+        return self.size
+    def clear(self):
+        self.head = -1
+        self.tail = -1
+        self.queue = [None] * self.size
+    def __str__(self):
+        return str(self.queue)
+    def delete(self):
+        del self.queue
 
 obj = CircularQueue(5)
 obj.enqueue(1)
