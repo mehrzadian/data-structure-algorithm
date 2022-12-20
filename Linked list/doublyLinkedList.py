@@ -24,11 +24,27 @@ class DoublyLinkedList:
                 temp = temp.next
             temp.next = node
             node.prev = temp
+    def pushAtPosition(self, data, index):
+        node = Node(data)
+        if index == 0:
+            self.pushAtFirst(data)
+        elif index >= self.size():
+            self.pushAtEnd(data)
+        else:
+            temp = self.head
+            for i in range(index-1):
+                temp = temp.next
+            node.next = temp.next
+            temp.next.prev = node
+            temp.next = node
+            node.prev = temp
+
     def deleteAtFirst(self):
         temp = self.head
         self.head = self.head.next
         self.head.prev = None
         del temp
+
     def deleteAtEnd(self):
         temp = self.head
         prev = None
@@ -38,6 +54,34 @@ class DoublyLinkedList:
             prev = temp
             temp = temp.next
         prev.next = None
+        del temp
+    
+    def deleteAtPosition(self, index):
+        if index == 0:
+            self.deleteAtFirst()
+        elif index >= self.size():
+            self.deleteAtEnd()
+        else:
+            temp = self.head
+            for i in range(index-1):
+                temp = temp.next
+            temp.next = temp.next.next
+            temp.next.prev = temp
+
+    def deleteAtValue(self, data):
+        temp = self.head
+        if temp.data == data:
+            self.deleteAtFirst()
+        else:
+            while temp.next:
+                if temp.next.data == data:
+                    temp.next = temp.next.next
+                    temp.next.prev = temp
+                    break
+                temp = temp.next
+                del temp
+    
+    
     def search(self, data):
         temp = self.head
         while temp:
