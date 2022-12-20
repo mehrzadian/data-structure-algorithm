@@ -105,5 +105,61 @@ class circularLinkedList:
             temp = temp.next
         return count
     
+    def findMin(self):
+        temp = self.head
+        min = temp.data
+        while temp.next != self.head:
+            if temp.data < min:
+                min = temp.data
+            temp = temp.next
+        return min
     
-    
+    def findMax(self):
+        temp = self.head
+        max = temp.data
+        while temp.next != self.head:
+            if temp.data > max:
+                max = temp.data
+            temp = temp.next
+        return max
+
+    def findMinValueAddress(self):
+        temp = self.head
+        min = temp.data
+        while temp.next != self.head:
+            if temp.data < min:
+                min = temp.data
+            temp = temp.next
+        return temp
+    def findMaxValueAddress(self):
+        temp =self.head
+        max = temp.data
+        while temp.next != self.head:
+            if temp.data > max:
+                max = temp.data
+            temp = temp.next
+        return temp
+circularLinkedList = circularLinkedList()
+circularLinkedList.head = Node(1)
+second = Node(2)
+third = Node(3)
+fourth = Node(4)
+fifth = Node(5)
+sixth = Node(6)
+seventh = Node(7)
+eighth = Node(8)
+ninth = Node(9)
+tenth = Node(10)
+circularLinkedList.head.next = second
+second.next = third
+third.next = fourth
+fourth.next = fifth
+fifth.next = sixth
+sixth.next = seventh
+seventh.next = eighth
+eighth.next = ninth
+ninth.next = tenth
+tenth.next = circularLinkedList.head
+tup =tuple(circularLinkedList.findMin,circularLinkedList.findMinValueAddress())
+print(tup)
+
