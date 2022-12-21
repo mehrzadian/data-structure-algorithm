@@ -178,4 +178,23 @@ class DoublyLinkedList:
         temp.next = other.head
         other.head.prev = temp
         return self
-    
+
+    def deleteDoublyLinkedList(self):
+        temp = self.head
+        while temp:
+            next = temp.next
+            del temp.data
+            temp = next
+        self.head = None
+doublyLinkedList = DoublyLinkedList()
+doublyLinkedList.pushAtFirst("َAmirreza Mehrzadian")
+doublyLinkedList.pushAtEnd("Computer Engineering")
+doublyLinkedList.pushAtEnd("Amirkabir University of Technology")
+doublyLinkedList.pushAtEnd("Tehran")
+doublyLinkedList.pushAtEnd(40)
+doublyLinkedList.pushAtEnd(15)
+import random
+while doublyLinkedList.size() <100 :
+    doublyLinkedList.pushAtEnd(random.randint(1,100))
+
+print(doublyLinkedList)
