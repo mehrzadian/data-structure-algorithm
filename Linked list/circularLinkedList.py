@@ -111,8 +111,9 @@ class circularLinkedList:
         while temp.next != self.head:
             if temp.data < min:
                 min = temp.data
+                minNode = temp
             temp = temp.next
-        return [min,temp]
+        return [min,minNode]
     
     def findMax(self):
         temp = self.head
@@ -120,8 +121,9 @@ class circularLinkedList:
         while temp.next != self.head:
             if temp.data > max:
                 max = temp.data
+                maxNode = temp
             temp = temp.next
-        return [max,temp]
+        return [max,maxNode]
 
     
 circularLinkedList = circularLinkedList()
