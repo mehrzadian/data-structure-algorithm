@@ -10,8 +10,9 @@ class binaryTree:
     def inorderTraversal(self,root):
         if root:
             self.inorderTraversal(root.left)
-            print (root.data)
+            print(root.data)
             self.inorderTraversal(root.right)
+        
     def preorderTraversal(self,root):
         if root:
             print (root.data)
@@ -89,7 +90,7 @@ class binaryTree:
             if node.left is last:
                 node.left = None
         return
-
+    
 
         
 
@@ -111,7 +112,7 @@ if __name__ == '__main__':
             # 7   15    8
 
     print("Inorder traversal before insertion:",)
-    binaryTree.inorderTraversal(root)
+    print(binaryTree.inorderTraversal(root))
  
     key = 12
     binaryTree.insert(key)
