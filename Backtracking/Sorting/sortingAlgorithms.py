@@ -72,5 +72,33 @@ class sortingAlgorithms:
             sortingAlgorithms.quickSort(arr, i+1, high)
         return arr
 
+    def mergeSort(arr):
+        if len(arr)>1:
+            mid = len(arr)//2
+            L = arr[:mid]
+            R = arr[mid:]
+            sortingAlgorithms.mergeSort(L)
+            sortingAlgorithms.mergeSort(R)
 
-print(sortingAlgorithms.quickSort([64, 12, 23, 11, 22],0, 4))
+            i=j=k=0
+            while i<len(L) and j<len(R):
+                if L[i]<=R[j]:
+                    arr[k]=L[i]
+                    i+=1
+                else:
+                    arr[k]=R[j]
+                    j+=1
+                k+=1
+            while i<len(L):
+                arr[k]=L[i]
+                i+=1
+                k+=1
+            while j<len(R):
+                arr[k]=R[j]
+                j+=1
+                k+=1
+        return arr
+            
+
+
+print(sortingAlgorithms.mergeSort([64, 12, 23, 11, 22]))
