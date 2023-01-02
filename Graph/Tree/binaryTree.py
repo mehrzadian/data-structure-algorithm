@@ -17,7 +17,7 @@ class binaryTree:
 
     def preorderTraversal(self, root):
         if root:
-            print(root.data, end=" ")
+            yield root.data
             self.preorderTraversal(root.left)
             self.preorderTraversal(root.right)
 
@@ -98,7 +98,18 @@ class binaryTree:
     def height(self, root):
         if root is None:
             return 0
-        return max(binaryTree.height(root.left) , binaryTree.height(root.right) )+1
+        return max(binaryTree.height(root.left), binaryTree.height(root.right))+1
+
+    def numberOfNodes(self, root):
+        if root is None:
+            return 0
+        return binaryTree.numberOfNodes(root.left)+binaryTree.numberOfNodes(root.right)+1
+    
+    def numberOfLeafs(self,root):
+        
+        if (root.left and root.right) is None:
+            return 1
+        return binaryTree.numberOfLeafs(root.left)+binaryTree.numberOfLeafs(root.right)
 
 
 root = Node(10)
@@ -107,7 +118,8 @@ root.left.left = Node(7)
 root.right = Node(9)
 root.right.left = Node(15)
 root.right.right = Node(8)
-root.right.right.right= Node(52)
+root.right.right.left = Node(23)
+root.right.right.right = Node(45)
 binaryTree = binaryTree(root)
 
 #     10
@@ -115,15 +127,18 @@ binaryTree = binaryTree(root)
 #  11     9
 #   /   /  \
 # 7   15    8
+#           / \
+#         23   45
 
-print("preorder traversal before insertion:",)
-print(binaryTree.preorderTraversal(root))
+print("preorder traversal before insertion:")
+print(next(binaryTree.preorderTraversal(root)))
 
-key = 12
-binaryTree.insert(key)
+# key = 12
+# binaryTree.insert(key)
 
-print()
-print("Inorder traversal after insertion:")
-binaryTree.inorderTraversal(root)
+# print()
+# print("Inorder traversal after insertion:")
+# binaryTree.inorderTraversal(root)
 print()
 print(binaryTree.height(root))
+print(binaryTree.numberOfLeafs(root))
