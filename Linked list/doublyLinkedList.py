@@ -120,6 +120,7 @@ class DoublyLinkedList:
         return count
     def clear(self):
         self.head = None
+    
     def __str__(self):
         temp = self.head
         string = ''
@@ -186,6 +187,8 @@ class DoublyLinkedList:
             del temp.data
             temp = next
         self.head = None
+
+
 doublyLinkedList = DoublyLinkedList()
 doublyLinkedList.pushAtFirst("َAmirreza Mehrzadian")
 doublyLinkedList.pushAtEnd("Computer Engineering")
@@ -198,3 +201,23 @@ while doublyLinkedList.size() <100 :
     doublyLinkedList.pushAtEnd(random.randint(1,100))
 
 print(doublyLinkedList)
+
+
+def reverse(node):
+        if node is None:
+            
+            return 
+        node.next, node.prev  = node.prev, node.next
+        return reverse(node.prev)
+print()
+n = Node(1)
+n.next = Node(2)
+n.next.next = Node(3)
+n.next.next.next = Node(4)
+
+n.next.next.next.prev= n.next.next
+n.next.next.prev = n.next
+n.next.prev = n
+reverse(n)
+print(n.prev.data)
+print()
