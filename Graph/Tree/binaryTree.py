@@ -4,7 +4,7 @@ class Node:
         self.left = None
         self.right = None
 
-
+    
 class binaryTree:
     def __init__(self, root):
         self.root = root
@@ -17,7 +17,7 @@ class binaryTree:
 
     def preorderTraversal(self, root):
         if root:
-            yield root.data
+            print( root.data, end=" ")
             self.preorderTraversal(root.left)
             self.preorderTraversal(root.right)
 
@@ -63,15 +63,9 @@ class binaryTree:
                 print("node left is NONE")
                 node.right = Node(data)
                 return
-
-    def delete(self, data):
-        ''' 
-        find te deepest element, replace it with the element that has the data
-        '''
-        if self.root is None:
-            return
+    def lastElement(self, root):
+        '''the most downward right element'''
         queue = []
-        nodeToDelete = None
         queue.append(self.root)
         while (len(queue)):
             node = queue.pop(0)
@@ -80,6 +74,16 @@ class binaryTree:
                 queue.append(node.left)
             if node.right is not None:
                 queue.append(node.right)
+        return last
+    def delete(self, data):
+        ''' 
+        find te deepest element, replace it with the element that has the data
+        '''
+        if self.root is None:
+            return
+        queue = []
+        nodeToDelete = None
+        last = binaryTree.lastElement(self.root)
         queue.append(self.root)
         while (len(queue)):
             node = queue.pop(0)
@@ -94,7 +98,10 @@ class binaryTree:
             if node.left is last:
                 node.left = None
         return
-
+        
+    def search(self, root, data):
+        return None
+    
     def height(self, root):
         if root is None:
             return 0
@@ -104,41 +111,55 @@ class binaryTree:
         if root is None:
             return 0
         return binaryTree.numberOfNodes(root.left)+binaryTree.numberOfNodes(root.right)+1
-    
-    def numberOfLeafs(self,root):
-        
+
+    def numberOfLeafs(self, root):
+
         if (root.left and root.right) is None:
             return 1
         return binaryTree.numberOfLeafs(root.left)+binaryTree.numberOfLeafs(root.right)
+    
+    def lastElement(self, root):
+
+        if (root.right and root.left) is None:
+            return root
+        if root.right is None:
+            binaryTree.lastElement(root.left)
+        else:
+            binaryTree.lastElement(root.right)
+    # def findMin(self, root):
+    #     if root.left > root.right:
 
 
-root = Node(10)
+root = Node(5)
 root.left = Node(11)
-root.left.left = Node(7)
-root.right = Node(9)
+root.left.left = Node(17)
+root.right = Node(6)
 root.right.left = Node(15)
 root.right.right = Node(8)
 root.right.right.left = Node(23)
 root.right.right.right = Node(45)
 binaryTree = binaryTree(root)
 
-#     10
+#     5
 #    /  \
-#  11     9
+#  11     6
 #   /   /  \
-# 7   15    8
+# 17   15    8
 #           / \
 #         23   45
 
 print("preorder traversal before insertion:")
-print(next(binaryTree.preorderTraversal(root)))
+print(binaryTree.preorderTraversal(root))
 
-# key = 12
-# binaryTree.insert(key)
+# # key = 12
+# # binaryTree.insert(key)
 
+# # print()
+# # print("Inorder traversal after insertion:")
+# # binaryTree.inorderTraversal(root)
 # print()
-# print("Inorder traversal after insertion:")
-# binaryTree.inorderTraversal(root)
-print()
-print(binaryTree.height(root))
-print(binaryTree.numberOfLeafs(root))
+# print(binaryTree.height(root))
+# print(binaryTree.numberOfLeafs(root))
+# # binaryTree.deleteRoot()
+# print(binaryTree.preorderTraversal(root))
+print(binaryTree.lastElement(root))
