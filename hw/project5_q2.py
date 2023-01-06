@@ -60,7 +60,7 @@ print()
 #   \   /  \
 #   12 20   40
 #  / \     /
-# 11 13   35
+# 11 13   35 
 def draw_tree(root):
     '''draw tree'''
     if root:
@@ -73,3 +73,4 @@ def draw_tree(root):
         draw_tree(root.right)
 
 draw_tree(root)
+
