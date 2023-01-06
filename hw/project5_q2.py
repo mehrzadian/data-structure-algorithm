@@ -61,3 +61,14 @@ print()
 #   12 20   40
 #  / \     /
 # 11 13   35
+def draw_tree(root):
+    '''draw tree'''
+    if root:
+        print(root.data)
+        if root.left:
+            print("left of ",root.data," is ",root.left.data)
+        if root.right:
+            print("right of ",root.data," is ",root.right.data)
+        draw_tree(root.left)
+        draw_tree(root.right)
+draw_tree(root)
