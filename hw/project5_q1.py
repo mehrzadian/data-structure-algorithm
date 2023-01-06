@@ -24,7 +24,7 @@ def makeBinTree(preorderTree='ABCDEFGHI', inorderTree='BCAEDGHFI'):
         preorderTree[1+rootIndex:], inorderTree[rootIndex+1:])
     return root
 
-
+######## قسمت اول سوال پروژه شامل این تابع هست ######
 def preorderTraversal(root, ls):
     '''make a list from preorder traversal of tree'''
     if root:
@@ -54,6 +54,8 @@ ls = preorderTraversal(root, [])
 print()
 print()
 print()
+
+######## قسمت اول سوال پروژه شامل این تابع هست ######
 def threadedBinTree(ls):
     # تمام گره ها بررسی میشن 
     #اگر گره راستی خالی بود، به عنصر بعدی لیست اشاره خواهد کرد
@@ -80,3 +82,44 @@ ls = preorderTraversal(root, [])
 # 17   15    8
 #           / \
 #         23   45
+
+######## قسمت دوم سوال پروژه شامل این تابع هست ######
+def inorderTraversal(root,ls):
+    if root:
+        if root.lthread == 0:
+            inorderTraversal(root.left,ls)
+        ls.append(root)
+        print(root.data, end=" ")
+        if root.rthread == 0:
+            inorderTraversal(root.right,ls)
+    return ls
+
+inorderTraversal(root,[])
+print()
+#ورودی های مختلف تست شده، خودتونم میتونید بهش ورودی بدید
+after_the_node = int(input("in the right side of which node do you want to insert? "))
+data = int(input("please enter the data of new node: "))
+node =Node(data)
+######## قسمت دوم سوال پروژه شامل این تابع هست ######
+def insert(ls,after_the_node,node):
+    #به ازای هر گره ای میریم جلو 
+    #هر وقت به گره درخواستی رسیدیم متوقف میشیم
+    #و چک میکنیم آیا سمت راستش خالی هست یا نه 
+    # اگر بود که گره جدید و اضافه 
+    #وگرنه قسمت راست گره را نگه میداریم و به قسمت راست گره جدید میریزیم
+     
+    for item in ls:
+        if item.data == after_the_node:
+            if item.right is None:
+                item.right = node
+            else:
+                temp = item.right
+                item.right = node
+                node.right = temp
+#برای تست از درختی که در بخش قبل پروژه بود استفاده شده
+
+insert(ls,after_the_node,node)
+inorderTraversal(root,[])
+#another traversing for check
+print()
+preorderTraversal(root,[])
