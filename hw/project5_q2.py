@@ -71,4 +71,5 @@ def draw_tree(root):
             print("right of ",root.data," is ",root.right.data)
         draw_tree(root.left)
         draw_tree(root.right)
+
 draw_tree(root)

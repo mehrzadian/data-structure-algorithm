@@ -138,6 +138,16 @@ root.right.left = Node(15)
 root.right.right = Node(8)
 root.right.right.left = Node(23)
 root.right.right.right = Node(45)
+def copy(root):
+    if root is None:
+        return None
+    root = Node(root.data)
+    copy(root.right)
+    copy(root.left)
+    return root
+root2 = copy(root)
+binaryTree2 = binaryTree(root2)
+print(binaryTree2.preorderTraversal(root2))
 binaryTree = binaryTree(root)
 
 #     5
