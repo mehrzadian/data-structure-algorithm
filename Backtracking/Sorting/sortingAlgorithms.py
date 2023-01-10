@@ -94,3 +94,11 @@ class sortingAlgorithms:
 
 
 print(sortingAlgorithms.mergeSort([64, 12, 23, 11, 22]))
+
+def selection_sort(arr):
+    for i in range(n:=len(arr)):
+        for j in range(n-i-1):
+            if arr[j]>arr[j+1]:
+                arr[j],arr[j+1] = arr[j+1],arr[j]
+    return arr
+print(selection_sort([2,10,32,5,47,85]))
