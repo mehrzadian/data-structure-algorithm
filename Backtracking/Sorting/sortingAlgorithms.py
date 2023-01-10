@@ -101,4 +101,13 @@ def selection_sort(arr):
             if arr[j]>arr[j+1]:
                 arr[j],arr[j+1] = arr[j+1],arr[j]
     return arr
-print(selection_sort([2,10,32,5,47,85]))
+print("selection_sort:  ",selection_sort([2,10,32,5,47,85]))
+
+def insertion_sort(arr):
+    for i in range(1,n:=len(arr)):
+        for j in range(i,0,-1):
+            if arr[j]<arr[j-1]:
+                arr[j],arr[j-1] = arr[j-1],arr[j]
+    return arr
+print("insertion_sort:  ",insertion_sort([2,10,32,5,47,85]))
+
