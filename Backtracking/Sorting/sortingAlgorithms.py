@@ -111,3 +111,10 @@ def insertion_sort(arr):
     return arr
 print("insertion_sort:  ",insertion_sort([2,10,32,5,47,85]))
 
+def shell_sort(arr):
+    gap =len(arr)//2
+    S=[[]*gap]
+    for i in range(gap):
+        for j in range(len(S)):
+            S[j].append()
+        
