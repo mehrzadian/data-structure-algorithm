@@ -36,3 +36,4 @@ def matrixIncidence(edges):
         graph[i][int(x[1])-1]=1
     
 matrixIncidence(graph)
+
