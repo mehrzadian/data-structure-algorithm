@@ -37,3 +37,55 @@ def matrixIncidence(edges):
     
 matrixIncidence(graph)
 
+# def inorder(self, root):
+    #     if root:
+    #         self.inorder(root.left)
+    #         print(root.val)
+    #         self.inorder(root.right)
+
+    # def preorder(self, root):
+    #     if root:
+    #         print(root.val)
+    #         self.preorder(root.left)
+    #         self.preorder(root.right)
+
+    # def postorder(self, root, q=[]):
+    #     if root:
+    #         self.postorder(root.left, q)
+    #         self.postorder(root.right, q)
+
+    #         q.append(root)
+
+    #     q = [i for i in q if i.val == None]
+    #     return q
+
+
+
+
+
+
+
+
+
+
+    # def smallestChild(self, node):
+    #     if node.left == None and node.right == None:
+    #         return
+    #     return node.left
+
+    # def largestChild(self, node):
+    #     if node.left == None and node.right == None:
+    #         return
+    #     return node.right
+
+    # def displace(self):
+    #     x = self.smallestChild(self)
+    #     y = self.largestChild(self)
+    #     if y.val - x.val == -1:
+    #         self.right, self.left = self.left, self.right
+    #         return 1
+    #     elif y.val - x.val < -1:
+    #         return False
+    #     elif y.val - x.val > 1:
+    #         return False
+    #     return True
