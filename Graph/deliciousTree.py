@@ -3,9 +3,9 @@ t = int(input())
 ls = []
 for i in range(t):
     m = int(input())
-    line = input().split()
+    line = list(map(int,input().split()))
     ls.append(line)
-# print(ls)
+
 
 
 class Node:
@@ -14,36 +14,13 @@ class Node:
         self.left = None
         self.right = None
 
-    # def smallestChild(self, node):
-    #     if node.left == None and node.right == None:
-    #         return
-    #     return node.left
-
-    # def largestChild(self, node):
-    #     if node.left == None and node.right == None:
-    #         return
-    #     return node.right
-
-    # def displace(self):
-    #     x = self.smallestChild(self)
-    #     y = self.largestChild(self)
-    #     if y.val - x.val == -1:
-    #         self.right, self.left = self.left, self.right
-    #         return 1
-    #     elif y.val - x.val < -1:
-    #         return False
-    #     elif y.val - x.val > 1:
-    #         return False
-    #     return True
+    
 
 
 class Tree:
     def __init__(self, line):
         n = len(line)
         q = []
-        line = [int(i) for i in line]
-        # line=line[::-1]
-        # print(line)
         self.root = Node()
         q.append(self.root)
         for i in range(int(log2(n))+1):
@@ -60,41 +37,19 @@ class Tree:
                     q.append(node.left)
                     q.append(node.right)
 
-    # def inorder(self, root):
-    #     if root:
-    #         self.inorder(root.left)
-    #         print(root.val)
-    #         self.inorder(root.right)
-
-    # def preorder(self, root):
-    #     if root:
-    #         print(root.val)
-    #         self.preorder(root.left)
-    #         self.preorder(root.right)
-
-    # def postorder(self, root, q=[]):
-    #     if root:
-    #         self.postorder(root.left, q)
-    #         self.postorder(root.right, q)
-
-    #         q.append(root)
-
-    #     q = [i for i in q if i.val == None]
-    #     return q
+    
 
     def levelorder(self, root):
-        x = []
-        q = []
+        x,q = [],[]
         q.append(root)
         while q:
             node = q.pop(0)
-            x.append(node)
+            if node.val == None:
+                x.append(node)
             if node.left:
                 q.append(node.left)
             if node.right:
                 q.append(node.right)
-
-        x = [i for i in x if i.val == None]
         x = x[::-1]
         return x
 
@@ -133,7 +88,6 @@ class Tree:
                     node.left, node.right = node.right, node.left
 
                 elif node.right.val - node.left.val > pow(2, level):
-
                     return -1
                 node.val = node.left.val
             currentlevel -= 1
@@ -148,8 +102,5 @@ class Tree:
 
 
 for item in ls:
-    
-    
     t = Tree(item)
     print(t.deliciousTree(t.root, len(item)))
-    # t.inorder(t.root)
